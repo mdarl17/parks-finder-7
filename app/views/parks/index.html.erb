@@ -1,0 +1,27 @@
+<section style="margin-left: 20px" class="search-parks">
+  <h1 id="search-hdr1-state-name"><%= @state %>'s Parks</h1>
+    <p>Total returned: <%= @total %> parks</p>
+    <span id="search-park-name">
+      <h4><% @parks.each.with_index do |park, i|%></h4>
+        </span>
+          <h4>Park Name</h4>
+        <span id="search-park-name-<%= i %>">
+          <p><%= park[:name] %></p>
+        </span>
+        <h4>Description</h4>
+        <span id="search-description-<%= i %>">
+          <p><%= park[:description] %></p>
+        </span>
+          <h4>Directions</h4>
+        <span id="search-directions-<%= i %>">
+          <p><%= park[:directions] %></p>
+        </span>
+        <h4>Standard Hours</h4>
+        <ul id="search-hours-<%= i %>">
+          <% park[:hours].each do |day, hours| %>
+            <li style="padding: 5px 0px 5px 0px; list-style: none; margin-left: -35px"><span style="font-weight:550"><%= day.capitalize %></span><span style="display: flex"> <%= hours %></li></span>
+          <% end %>
+        </ul>
+      <br>
+    <% end %>
+</section>
